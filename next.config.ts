@@ -1,7 +1,20 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    // Configure `pageExtensions` to include markdown and MDX files
+    pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "github.com",
+            },
+        ],
+        domains: ["github.com"],
+    },
 };
 
-export default nextConfig;
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);
