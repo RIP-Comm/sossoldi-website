@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sossoldi Landing Page
+
+The official landing page for [Sossoldi](https://github.com/RIP-Comm/Sossoldi) - the open-source personal finance app by the Mr. RIP Community.
+
+## Features
+
+- **Internationalization**: Full English and Italian support with URL prefix routing (`/en`, `/it`)
+- **Modern Design**: Glassmorphism UI with the "Serious Blue" Sossoldi brand palette
+- **Animations**: Smooth Framer Motion animations including animated counters and graphs
+- **Dark/Light Mode**: System-aware theme switching
+- **MDX Blog**: Static blog with full MDX support
+- **SEO Optimized**: Static generation for all pages
+
+## Tech Stack
+
+- **Framework**: Next.js 16 with App Router
+- **Styling**: Tailwind CSS v4 with custom Sossoldi color palette
+- **Components**: shadcn/ui (New York style)
+- **Animations**: Framer Motion
+- **i18n**: next-intl with prefix routing
+- **Content**: MDX for blog posts
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+# Install dependencies
+bun install
+
+# Run development server
 bun dev
+
+# Build for production
+bun run build
+
+# Start production server
+bun start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+app/
+├── [locale]/
+│   ├── layout.tsx          # Locale-wrapped layout
+│   ├── page.tsx            # Landing page
+│   └── blog/
+│       ├── page.tsx        # Blog listing
+│       └── [slug]/         # Individual blog posts
+├── globals.css             # Sossoldi brand colors & styles
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+components/
+├── layout/                 # Navbar, Footer, MobileNav, LocaleSwitcher
+├── sections/               # Hero, Features, FAQ, BlogPreview
+├── ui/                     # shadcn/ui + custom components
+└── providers/              # Theme provider
 
-## Learn More
+content/
+└── blog/                   # MDX blog posts
 
-To learn more about Next.js, take a look at the following resources:
+i18n/
+├── routing.ts              # Locale configuration
+├── request.ts              # next-intl server config
+└── navigation.ts           # Localized navigation helpers
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+messages/
+├── en.json                 # English translations
+└── it.json                 # Italian translations
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Redirects
 
-## Deploy on Vercel
+The middleware handles external redirects:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Path | Destination |
+|------|-------------|
+| `/docs` | GitHub Pages documentation |
+| `/contribute` | CONTRIBUTING.md on GitHub |
+| `/community` | Discord invite |
+| `/repo` | GitHub repository |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Brand Colors
+
+The Sossoldi "Serious Blue" palette:
+
+- **Primary**: `#0D47A1` (Blue 900)
+- **Primary Light**: `#1565C0` (Blue 800)
+- **Accent**: `#42A5F5` (Blue 400)
+- **Success**: `#4CAF50` (Income/Positive)
+- **Destructive**: `#EF5350` (Expense/Negative)
+
+## Adding Blog Posts
+
+Create a new `.mdx` file in `content/blog/`:
+
+```mdx
+export const metadata = {
+  title: "Your Post Title",
+  publishDate: "2024-12-20",
+  excerpt: "A brief description of the post.",
+  author: {
+    name: "Author Name",
+    bio: "Short bio",
+    avatar: "https://github.com/username.png",
+  },
+  tags: ["Tag1", "Tag2"],
+  seo: {
+    metaTitle: "SEO Title",
+    metaDescription: "SEO Description",
+  },
+};
+
+Your MDX content here...
+```
+
+## License
+
+Open source, built with ❤️ by the Mr. RIP Community.
