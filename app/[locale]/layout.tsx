@@ -12,7 +12,6 @@ const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
 });
 
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -53,18 +52,14 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body
-        className={`${nunitoSans.variable} font-sans antialiased`}
-      >
+      <body className={`${nunitoSans.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
+          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

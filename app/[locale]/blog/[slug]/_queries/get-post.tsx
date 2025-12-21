@@ -32,9 +32,7 @@ export type Post = PostMetadata & {
 export async function getPostSlugs() {
   const postsDirectory = path.join(process.cwd(), "content/blog");
   const files = await fs.readdir(postsDirectory);
-  return files
-    .filter((file) => file.endsWith(".mdx"))
-    .map((file) => file.replace(/\.mdx$/, ""));
+  return files.filter((file) => file.endsWith(".mdx")).map((file) => file.replace(/\.mdx$/, ""));
 }
 
 export async function getPost(slug: string): Promise<Post | null> {
@@ -58,13 +56,10 @@ export async function getAllPosts(): Promise<Post[]> {
     slugs.map(async (slug) => {
       const post = await getPost(slug);
       return post;
-    })
+    }),
   );
 
   return posts
     .filter((post): post is Post => post !== null)
-    .sort(
-      (a, b) =>
-        new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime()
-    );
+    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 }

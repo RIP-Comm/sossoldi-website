@@ -21,12 +21,7 @@ export function GridPattern({
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <pattern
-          id="grid-pattern"
-          width={cellSize}
-          height={cellSize}
-          patternUnits="userSpaceOnUse"
-        >
+        <pattern id="grid-pattern" width={cellSize} height={cellSize} patternUnits="userSpaceOnUse">
           <path
             d={`M ${cellSize} 0 L 0 0 0 ${cellSize}`}
             fill="none"
@@ -55,4 +50,3 @@ export function GridPattern({
     </svg>
   );
 }
-

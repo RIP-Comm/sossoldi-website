@@ -10,11 +10,7 @@ interface RotatingTextProps {
   interval?: number;
 }
 
-export function RotatingText({
-  words,
-  className,
-  interval = 3000,
-}: RotatingTextProps) {
+export function RotatingText({ words, className, interval = 3000 }: RotatingTextProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -45,4 +41,3 @@ export function RotatingText({
     </span>
   );
 }
-

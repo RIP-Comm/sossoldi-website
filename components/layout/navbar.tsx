@@ -40,7 +40,7 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500",
-          isScrolled ? "py-3" : "py-6"
+          isScrolled ? "py-3" : "py-6",
         )}
       >
         {/* Unified rounded-full container */}
@@ -49,7 +49,7 @@ export function Navbar() {
             "flex h-12 items-center gap-1 rounded-full px-1.5 transition-all duration-500",
             isScrolled
               ? "border border-border/50 bg-background/80 shadow-lg shadow-black/5 backdrop-blur-xl"
-              : "border border-border/30 bg-background/60 backdrop-blur-md"
+              : "border border-border/30 bg-background/60 backdrop-blur-md",
           )}
         >
           {/* Logo */}
@@ -101,7 +101,7 @@ export function Navbar() {
 
             {/* GitHub CTA - emphasized */}
             <Button variant="default" asChild>
-                <a
+              <a
                 href="https://github.com/RIP-Comm/Sossoldi"
                 target="_blank"
                 rel="noopener noreferrer"

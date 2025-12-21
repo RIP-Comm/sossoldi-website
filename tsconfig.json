@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
-, "content/blog/second-post.mdx"  ],
+    "**/*.mts",
+    "content/blog/second-post.mdx"
+  ],
   "exclude": ["node_modules"]
 }

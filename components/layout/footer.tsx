@@ -59,18 +59,10 @@ export function Footer() {
             className="lg:col-span-1"
           >
             <div className="flex items-center gap-2 mb-4">
-              <Image
-                src="/logo.png"
-                alt="Sossoldi"
-                width={32}
-                height={32}
-                className="rounded-lg"
-              />
+              <Image src="/logo.png" alt="Sossoldi" width={32} height={32} className="rounded-lg" />
               <span className="font-bold text-lg">Sossoldi</span>
             </div>
-            <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              {t("tagline")}
-            </p>
+            <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">{t("tagline")}</p>
           </motion.div>
 
           {/* Product column */}
@@ -127,7 +119,7 @@ export function Footer() {
                       {link.label}
                     </a>
                   </li>
-                )
+                ),
               )}
             </ul>
           </motion.div>
@@ -211,17 +203,13 @@ export function Footer() {
                 className="flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 aria-label={social.label}
               >
-                {typeof social.icon === "function" && (
-                  <social.icon />
-                )}
+                {typeof social.icon === "function" && <social.icon />}
               </a>
             ))}
           </div>
 
           {/* Copyright */}
-          <p className="text-xs text-muted-foreground">
-            {t("copyright", { year: currentYear })}
-          </p>
+          <p className="text-xs text-muted-foreground">{t("copyright", { year: currentYear })}</p>
         </motion.div>
       </div>
 

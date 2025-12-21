@@ -136,9 +136,7 @@ export function Hero() {
 function StatBadge({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center">
-      <div className="text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">
-        {value}
-      </div>
+      <div className="text-2xl font-bold text-foreground sm:text-3xl md:text-4xl">{value}</div>
       <div className="mt-1 font-mono text-xs text-muted-foreground uppercase tracking-wider">
         {label}
       </div>

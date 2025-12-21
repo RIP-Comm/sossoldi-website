@@ -6,11 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ArrowUpRight, Calendar, Clock, ArrowLeft } from "lucide-react";
 
-export default async function BlogPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
 
@@ -32,8 +28,7 @@ export default async function BlogPage({
             Insights & <span className="text-primary">Updates</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-            Financial tips, release notes, and technical deep-dives from the
-            Sossoldi team.
+            Financial tips, release notes, and technical deep-dives from the Sossoldi team.
           </p>
         </header>
 
@@ -79,9 +74,7 @@ export default async function BlogPage({
                   </h2>
 
                   {/* Excerpt */}
-                  <p className="mt-2 text-muted-foreground line-clamp-2">
-                    {post.excerpt}
-                  </p>
+                  <p className="mt-2 text-muted-foreground line-clamp-2">{post.excerpt}</p>
 
                   {/* Meta */}
                   <div className="mt-4 flex items-center gap-4 text-sm text-muted-foreground">

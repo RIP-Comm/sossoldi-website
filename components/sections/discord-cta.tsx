@@ -110,9 +110,7 @@ export function DiscordCTA() {
                 className="mt-12 flex flex-wrap items-center justify-center gap-12 sm:gap-16"
               >
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-foreground sm:text-3xl">
-                    500+
-                  </div>
+                  <div className="text-2xl font-bold text-foreground sm:text-3xl">500+</div>
                   <div className="mt-1 font-mono text-xs text-muted-foreground uppercase tracking-wider">
                     {t("members")}
                   </div>

@@ -82,9 +82,7 @@ export default async function BlogPostPage({
             </h1>
 
             {/* Excerpt */}
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-              {post.excerpt}
-            </p>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">{post.excerpt}</p>
 
             {/* Featured image */}
             {post.featuredImage && (
@@ -103,9 +101,7 @@ export default async function BlogPostPage({
           {/* Divider */}
           <div className="my-12 flex items-center gap-4">
             <div className="h-px flex-1 bg-border/40" />
-            <span className="font-mono text-xs text-muted-foreground/50">
-              •••
-            </span>
+            <span className="font-mono text-xs text-muted-foreground/50">•••</span>
             <div className="h-px flex-1 bg-border/40" />
           </div>
 
@@ -116,9 +112,7 @@ export default async function BlogPostPage({
 
           {/* Share section */}
           <div className="mt-16 flex items-center justify-center gap-4 border-t border-border/40 pt-8">
-            <span className="text-sm text-muted-foreground">
-              Share this article
-            </span>
+            <span className="text-sm text-muted-foreground">Share this article</span>
             <button className="flex size-10 items-center justify-center rounded-full border border-border/50 text-muted-foreground transition-colors hover:border-foreground/20 hover:bg-muted hover:text-foreground">
               <Share2 className="size-4" />
             </button>
@@ -143,9 +137,7 @@ export default async function BlogPostPage({
                 </span>
                 <h3 className="mt-1 text-lg font-semibold">{post.author.name}</h3>
                 {post.author.bio && (
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {post.author.bio}
-                  </p>
+                  <p className="mt-1 text-sm text-muted-foreground">{post.author.bio}</p>
                 )}
               </div>
             </div>

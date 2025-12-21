@@ -36,15 +36,12 @@ export function AnimatedGraph() {
   // Calculate points for the line
   const points = dataPoints.map((d, i) => {
     const x = padding.left + (i / (dataPoints.length - 1)) * graphWidth;
-    const y =
-      padding.top + graphHeight - ((d.value - minValue) / range) * graphHeight;
+    const y = padding.top + graphHeight - ((d.value - minValue) / range) * graphHeight;
     return { x, y, ...d };
   });
 
   // Create SVG path
-  const linePath = points
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
-    .join(" ");
+  const linePath = points.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
 
   // Create area path (for gradient fill)
   const areaPath = `${linePath} L ${points[points.length - 1].x} ${
@@ -98,19 +95,20 @@ export function AnimatedGraph() {
         })}
 
         {/* X-axis labels */}
-        {points.map((p, i) => (
-          i % 2 === 0 && (
-            <text
-              key={i}
-              x={p.x}
-              y={height - padding.bottom + 20}
-              textAnchor="middle"
-              className="fill-muted-foreground text-[10px]"
-            >
-              {p.month}
-            </text>
-          )
-        ))}
+        {points.map(
+          (p, i) =>
+            i % 2 === 0 && (
+              <text
+                key={i}
+                x={p.x}
+                y={height - padding.bottom + 20}
+                textAnchor="middle"
+                className="fill-muted-foreground text-[10px]"
+              >
+                {p.month}
+              </text>
+            ),
+        )}
 
         {/* Area fill */}
         <motion.path

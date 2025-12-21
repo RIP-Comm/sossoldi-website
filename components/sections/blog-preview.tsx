@@ -34,8 +34,7 @@ const previewPosts = [
   {
     slug: "first-post",
     title: "Introducing Sossoldi 2.0",
-    excerpt:
-      "The next evolution of personal finance tracking with automated bank connections.",
+    excerpt: "The next evolution of personal finance tracking with automated bank connections.",
     date: "2024-12-15",
     readTime: "5 min",
     tag: "Release",
@@ -43,8 +42,7 @@ const previewPosts = [
   {
     slug: "second-post",
     title: "Privacy-First Banking",
-    excerpt:
-      "How we handle your financial data with zero tracking and full transparency.",
+    excerpt: "How we handle your financial data with zero tracking and full transparency.",
     date: "2024-12-10",
     readTime: "4 min",
     tag: "Privacy",
@@ -52,8 +50,7 @@ const previewPosts = [
   {
     slug: "md-showcase",
     title: "Open Source Finance",
-    excerpt:
-      "Why building in the open matters for personal finance applications.",
+    excerpt: "Why building in the open matters for personal finance applications.",
     date: "2024-12-05",
     readTime: "6 min",
     tag: "Community",

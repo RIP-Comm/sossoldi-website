@@ -40,10 +40,7 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
   return (
-    <motion.div
-      variants={itemVariants}
-      className="group border-t border-border/40"
-    >
+    <motion.div variants={itemVariants} className="group border-t border-border/40">
       <button
         onClick={onToggle}
         className="flex w-full items-start gap-6 py-6 text-left transition-colors md:py-8"
@@ -62,17 +59,13 @@ function FAQItem({ question, answer, isOpen, onToggle, index }: FAQItemProps) {
         <span
           className={cn(
             "mt-1 flex size-6 shrink-0 items-center justify-center rounded-full border border-border/50 transition-all duration-300",
-            isOpen
-              ? "rotate-180 border-primary/50 bg-primary/5"
-              : "group-hover:border-primary/30"
+            isOpen ? "rotate-180 border-primary/50 bg-primary/5" : "group-hover:border-primary/30",
           )}
         >
           <ChevronDown
             className={cn(
               "size-4 transition-colors",
-              isOpen
-                ? "text-primary"
-                : "text-muted-foreground group-hover:text-primary"
+              isOpen ? "text-primary" : "text-muted-foreground group-hover:text-primary",
             )}
           />
         </span>

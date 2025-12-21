@@ -9,11 +9,7 @@ interface AnimatedCounterProps {
   className?: string;
 }
 
-export function AnimatedCounter({
-  value,
-  duration = 2,
-  className,
-}: AnimatedCounterProps) {
+export function AnimatedCounter({ value, duration = 2, className }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const hasAnimatedRef = useRef(false);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -23,9 +19,7 @@ export function AnimatedCounter({
     bounce: 0,
   });
 
-  const display = useTransform(spring, (current) =>
-    Math.round(current).toLocaleString()
-  );
+  const display = useTransform(spring, (current) => Math.round(current).toLocaleString());
 
   useEffect(() => {
     if (isInView && !hasAnimatedRef.current) {

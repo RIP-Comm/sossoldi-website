@@ -8,11 +8,7 @@ import { BlogPreview } from "@/components/sections/blog-preview";
 import { DiscordCTA } from "@/components/sections/discord-cta";
 import { SectionDivider } from "@/components/ui/section-divider";
 
-export default async function HomePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
 

@@ -104,11 +104,7 @@ interface StaggerItemProps {
   animation?: AnimationType;
 }
 
-export function StaggerItem({
-  children,
-  className,
-  animation = "fadeUp",
-}: StaggerItemProps) {
+export function StaggerItem({ children, className, animation = "fadeUp" }: StaggerItemProps) {
   return (
     <motion.div variants={animations[animation]} className={cn(className)}>
       {children}

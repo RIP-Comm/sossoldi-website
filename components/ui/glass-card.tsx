@@ -10,12 +10,7 @@ interface GlassCardProps {
   delay?: number;
 }
 
-export function GlassCard({
-  children,
-  className,
-  hoverEffect = true,
-  delay = 0,
-}: GlassCardProps) {
+export function GlassCard({ children, className, hoverEffect = true, delay = 0 }: GlassCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -26,7 +21,7 @@ export function GlassCard({
       className={cn(
         "glass rounded-2xl p-6 transition-shadow duration-300",
         hoverEffect && "hover:shadow-lg hover:shadow-primary/5",
-        className
+        className,
       )}
     >
       {children}

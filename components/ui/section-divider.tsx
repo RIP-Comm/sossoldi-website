@@ -8,11 +8,7 @@ interface SectionDividerProps {
   number?: string;
 }
 
-export function SectionDivider({
-  className,
-  variant = "line",
-  number,
-}: SectionDividerProps) {
+export function SectionDivider({ className, variant = "line", number }: SectionDividerProps) {
   if (variant === "dots") {
     return (
       <div className={cn("flex items-center justify-center py-8", className)}>

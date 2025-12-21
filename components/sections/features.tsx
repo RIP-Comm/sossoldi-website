@@ -2,14 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import {
-  Building2,
-  TrendingUp,
-  Wallet,
-  Shield,
-  Sparkles,
-  LineChart,
-} from "lucide-react";
+import { Building2, TrendingUp, Wallet, Shield, Sparkles, LineChart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/ui/section-header";
 
@@ -69,7 +62,7 @@ function FeatureCard({
         "[&:nth-last-child(-n+3)]:lg:border-b-0",
         "[&:nth-last-child(-n+2)]:md:border-b-0 [&:nth-last-child(-n+2)]:lg:border-b",
         featured && "md:col-span-2 lg:col-span-2",
-        className
+        className,
       )}
     >
       {/* Index number */}
@@ -80,16 +73,14 @@ function FeatureCard({
       <div
         className={cn(
           "mb-6 mx-auto inline-flex rounded-2xl border border-border/50 bg-background p-4 transition-colors group-hover:border-primary/30 group-hover:bg-primary/5",
-          iconClassName
+          iconClassName,
         )}
       >
         <Icon className="size-6 text-muted-foreground transition-colors group-hover:text-primary" />
       </div>
 
       <h3 className="mb-3 text-lg font-semibold tracking-tight">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">
-        {description}
-      </p>
+      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
 
       {featured && (
         <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary">
