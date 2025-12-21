@@ -12,9 +12,16 @@
     "download": "Download"
   },
   "hero": {
-    "headline": "Master Your Wealth,",
-    "headlineHighlight": "Transparently.",
-    "subheadline": "The open-source personal finance app that bridges the gap between manual spreadsheets and automated banking. Track net worth, investments, and expenses in one secure place.",
+    "badge": "Now with bank connections",
+    "headline": "Your wealth.",
+    "rotatingWords": {
+      "track": "Track it.",
+      "grow": "Grow it.",
+      "manage": "Manage it.",
+      "control": "Control it."
+    },
+    "subheadline": "The open-source personal finance app that bridges the gap between manual spreadsheets and automated banking.",
+    "scrollCta": "Discover",
     "cta": {
       "download": "Download Now",
       "appStore": "App Store",
@@ -22,10 +29,9 @@
       "github": "View on GitHub"
     },
     "stats": {
-      "netWorth": "Net Worth",
-      "income": "Monthly Income",
-      "expenses": "Monthly Expenses",
-      "savings": "Savings Rate"
+      "openSource": "Open Source",
+      "trackers": "Trackers",
+      "transparency": "Transparency"
     }
   },
   "features": {
@@ -48,6 +54,10 @@
     "privacyFirst": {
       "title": "Privacy First",
       "description": "Local-first data storage, zero tracking, open source. Your financial data stays yours, always."
+    },
+    "analytics": {
+      "title": "Smart Analytics",
+      "description": "Deep insights into your spending patterns with beautiful charts and actionable recommendations."
     }
   },
   "faq": {
@@ -96,6 +106,14 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "copyright": "© {year} Sossoldi. Open source with ❤️ by the Mr. RIP Community."
+  },
+  "discordCta": {
+    "title": "Join Our",
+    "titleHighlight": "Community",
+    "description": "Connect with fellow finance enthusiasts, get help, share tips, and shape the future of Sossoldi together. Our Discord is where the magic happens.",
+    "button": "Join Discord",
+    "members": "Members",
+    "online": "Active Now"
   },
   "common": {
     "learnMore": "Learn more",

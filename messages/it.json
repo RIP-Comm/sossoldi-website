@@ -7,14 +7,21 @@
     "features": "Funzionalità",
     "blog": "Blog",
     "faq": "FAQ",
-    "docs": "Documentazione",
+    "docs": "Docs",
     "github": "GitHub",
     "download": "Scarica"
   },
   "hero": {
-    "headline": "Gestisci il Tuo Patrimonio,",
-    "headlineHighlight": "in Trasparenza.",
-    "subheadline": "L'app open source per la gestione delle finanze personali che colma il divario tra fogli di calcolo manuali e banking automatizzato. Traccia patrimonio, investimenti e spese in un unico posto sicuro.",
+    "badge": "Ora con connessioni bancarie",
+    "headline": "Il tuo patrimonio.",
+    "rotatingWords": {
+      "track": "Traccialo.",
+      "grow": "Fallo crescere.",
+      "manage": "Gestiscilo.",
+      "control": "Controllalo."
+    },
+    "subheadline": "L'app open source per la gestione delle finanze personali che colma il divario tra fogli di calcolo manuali e banking automatizzato.",
+    "scrollCta": "Scopri",
     "cta": {
       "download": "Scarica Ora",
       "appStore": "App Store",
@@ -22,10 +29,9 @@
       "github": "Vedi su GitHub"
     },
     "stats": {
-      "netWorth": "Patrimonio Netto",
-      "income": "Entrate Mensili",
-      "expenses": "Spese Mensili",
-      "savings": "Tasso di Risparmio"
+      "openSource": "Open Source",
+      "trackers": "Trackers",
+      "transparency": "Trasparenza"
     }
   },
   "features": {
@@ -48,6 +54,10 @@
     "privacyFirst": {
       "title": "Privacy Prima di Tutto",
       "description": "Archiviazione locale dei dati, zero tracciamento, open source. I tuoi dati finanziari restano tuoi, sempre."
+    },
+    "analytics": {
+      "title": "Analisi Intelligenti",
+      "description": "Approfondimenti sui tuoi modelli di spesa con grafici bellissimi e raccomandazioni attuabili."
     }
   },
   "faq": {
@@ -96,6 +106,14 @@
     "privacy": "Privacy Policy",
     "terms": "Termini di Servizio",
     "copyright": "© {year} Sossoldi. Open source con ❤️ dalla Community Mr. RIP."
+  },
+  "discordCta": {
+    "title": "Unisciti alla",
+    "titleHighlight": "Community",
+    "description": "Connettiti con altri appassionati di finanza, ottieni aiuto, condividi consigli e contribuisci a plasmare il futuro di Sossoldi insieme. Il nostro Discord è dove succede la magia.",
+    "button": "Unisciti su Discord",
+    "members": "Membri",
+    "online": "Attivi Ora"
   },
   "common": {
     "learnMore": "Scopri di più",
