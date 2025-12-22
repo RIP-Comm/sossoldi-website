@@ -6,10 +6,101 @@ import { Link } from "@/i18n/navigation";
 import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
 
 export async function generateStaticParams() {
   const slugs = await getPostSlugs();
-  return slugs.map((slug) => ({ slug }));
+  // Generate params for all locales and slugs
+  const params: Array<{ locale: string; slug: string }> = [];
+  for (const locale of routing.locales) {
+    for (const slug of slugs) {
+      params.push({ locale, slug });
+    }
+  }
+  return params;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const post = await getPost(slug);
+
+  if (!post) {
+    return {
+      title: "Post Not Found",
+      description: "The requested blog post could not be found.",
+    };
+  }
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sossoldi.com";
+  const title = post.seo?.metaTitle || post.title;
+  const description = post.seo?.metaDescription || post.excerpt;
+  const imageUrl = post.featuredImage
+    ? `${baseUrl}${post.featuredImage.startsWith("/") ? "" : "/"}${post.featuredImage}`
+    : `${baseUrl}/logo.png`;
+  const postUrl = `${baseUrl}/${locale}/blog/${slug}`;
+  const publishDate = new Date(post.publishDate).toISOString();
+  const modifiedDate = post.lastModified
+    ? new Date(post.lastModified).toISOString()
+    : publishDate;
+
+  return {
+    title,
+    description,
+    keywords: post.tags || [],
+    authors: [{ name: post.author.name }],
+    publishedTime: publishDate,
+    modifiedTime: modifiedDate,
+    alternates: {
+      languages: Object.fromEntries(
+        routing.locales.map((loc) => [loc, `${baseUrl}/${loc}/blog/${slug}`])
+      ),
+      canonical: postUrl,
+    },
+    openGraph: {
+      type: "article",
+      locale: locale === "it" ? "it_IT" : "en_US",
+      url: postUrl,
+      siteName: "Sossoldi",
+      title,
+      description,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      publishedTime: publishDate,
+      modifiedTime: modifiedDate,
+      authors: [post.author.name],
+      tags: post.tags || [],
+      alternateLocale: routing.locales.filter((loc) => loc !== locale),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [imageUrl],
+      creator: "@sossoldi",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
 }
 
 export default async function BlogPostPage({
@@ -27,9 +118,55 @@ export default async function BlogPostPage({
   }
 
   const Content = post.content;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sossoldi.com";
+  const imageUrl = post.featuredImage
+    ? `${baseUrl}${post.featuredImage.startsWith("/") ? "" : "/"}${post.featuredImage}`
+    : `${baseUrl}/logo.png`;
+
+  // Structured data for blog post
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: imageUrl,
+    datePublished: new Date(post.publishDate).toISOString(),
+    dateModified: post.lastModified
+      ? new Date(post.lastModified).toISOString()
+      : new Date(post.publishDate).toISOString(),
+    author: {
+      "@type": "Person",
+      name: post.author.name,
+      description: post.author.bio,
+      image: post.author.avatar
+        ? `${baseUrl}${post.author.avatar.startsWith("/") ? "" : "/"}${post.author.avatar}`
+        : undefined,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Sossoldi",
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/${locale}/blog/${slug}`,
+    },
+    keywords: post.tags?.join(", ") || "",
+    inLanguage: locale === "it" ? "it" : "en",
+    articleSection: "Finance",
+    wordCount: post.excerpt.split(" ").length, // Approximate
+  };
 
   return (
     <div className="min-h-screen bg-background">
+      {/* JSON-LD structured data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Navbar />
       <main className="mx-auto max-w-3xl px-6 py-24 md:py-32">
         {/* Back link */}
