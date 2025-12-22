@@ -1,5 +1,6 @@
 export { AnimatedCounter } from "./animated-counter";
 export { AnimatedGraph } from "./animated-graph";
+export { BlogCard, type BlogPost } from "./blog-card";
 export { GlassCard } from "./glass-card";
 export { ScrollReveal, StaggerContainer, StaggerItem } from "./scroll-reveal";
 export { GridPattern } from "./grid-pattern";

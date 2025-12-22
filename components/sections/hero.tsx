@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Apple, ArrowDown, Play } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { RotatingText } from "@/components/ui/rotating-text";
@@ -15,7 +15,7 @@ const AppStoreIcon = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, delay: 1 }}
-      className="h-12 shrink-0"
+      className="h-8 md:h-12 shrink-0"
     />
   );
 };
@@ -28,7 +28,7 @@ const PlayStoreIcon = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, delay: 1 }}
-      className=" h-12 shrink-0"
+      className="h-8 md:h-12 shrink-0"
     />
   );
 };
