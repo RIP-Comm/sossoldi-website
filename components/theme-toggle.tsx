@@ -24,7 +24,7 @@ export function ThemeToggle() {
   if (!mounted) {
     // Return a placeholder with the same dimensions to avoid layout shift
     return (
-      <Button variant="ghost" size="icon" className="h-9 w-9">
+      <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full hover:bg-muted/80 hover:text-foreground">
         <span className="h-[1.2rem] w-[1.2rem]" />
         <span className="sr-only">Toggle theme</span>
       </Button>
@@ -32,7 +32,7 @@ export function ThemeToggle() {
   }
 
   return (
-    <Button variant="ghost" size="icon" className="h-9 w-9" onClick={toggleTheme}>
+    <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full hover:bg-muted/80 hover:text-foreground" onClick={toggleTheme}>
       <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
       <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
       <span className="sr-only">Toggle theme</span>

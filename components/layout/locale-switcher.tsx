@@ -1,7 +1,7 @@
 "use client";
 
+import { Globe } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Globe } from "lucide-react";
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 const locales = [
   { code: "en", label: "English", flag: "🇬🇧" },
@@ -29,7 +29,11 @@ export function LocaleSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-9 w-9">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="h-9 w-9 rounded-full hover:bg-muted/80 hover:text-foreground"
+        >
           <Globe className="size-4" />
           <span className="sr-only">{t("switchLanguage")}</span>
         </Button>

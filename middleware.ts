@@ -1,15 +1,15 @@
-import createMiddleware from "next-intl/middleware";
 import { NextRequest, NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
 // External redirect URLs
 const EXTERNAL_REDIRECTS: Record<string, string> = {
-  "/docs": "https://rip-comm.github.io/Sossoldi/",
-  "/contribute": "https://github.com/RIP-Comm/Sossoldi/blob/main/CONTRIBUTING.md",
-  "/community": "https://discord.gg/2A3SkHhw5H",
-  "/repo": "https://github.com/RIP-Comm/Sossoldi",
+  "/docs": "https://rip-comm.github.io/sossoldi/",
+  "/contribute": "https://rip-comm.github.io/sossoldi/contributing/PR-guide.html",
+  "/community": "https://discord.gg/rJ8ZFDrM",
+  "/repo": "https://github.com/RIP-Comm/sossoldi",
 };
 
 export default function middleware(request: NextRequest) {

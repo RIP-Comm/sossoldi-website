@@ -1,10 +1,37 @@
+/** biome-ignore-all lint/performance/noImgElement: <explanation> */
 "use client";
 
-import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { Apple, Play, ArrowDown } from "lucide-react";
+import { Apple, ArrowDown, Play } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { RotatingText } from "@/components/ui/rotating-text";
+
+const AppStoreIcon = () => {
+  return (
+    <motion.img
+      src="/appstore.svg"
+      alt="App Store"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 1 }}
+      className="h-12 shrink-0"
+    />
+  );
+};
+
+const PlayStoreIcon = () => {
+  return (
+    <motion.img
+      src="/playstore.svg"
+      alt="Play Store"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1, delay: 1 }}
+      className=" h-12 shrink-0"
+    />
+  );
+};
 
 export function Hero() {
   const t = useTranslations("hero");
@@ -79,19 +106,15 @@ export function Hero() {
             href="https://apps.apple.com/us/app/sossoldi/id6740497000"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-all hover:bg-foreground/90"
           >
-            <Apple className="size-5" />
-            {t("cta.appStore")}
+            <AppStoreIcon />
           </a>
           <a
             href="https://play.google.com/store/apps/details?id=com.ripcomm.sossoldi"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium transition-colors hover:bg-muted"
           >
-            <Play className="size-5" />
-            {t("cta.playStore")}
+            <PlayStoreIcon />
           </a>
         </motion.div>
 

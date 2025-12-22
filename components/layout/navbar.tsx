@@ -114,13 +114,14 @@ export function Navbar() {
             </Button>
 
             {/* Mobile menu button */}
-            <button
+            <Button
+              variant="ghost"
               className="flex items-center justify-center rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground md:hidden"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open menu"
             >
               <Menu className="size-5" />
-            </button>
+            </Button>
           </div>
         </nav>
       </motion.header>
@@ -163,13 +164,15 @@ export function Navbar() {
                   />
                   <span className="text-lg font-bold">Sossoldi</span>
                 </Link>
-                <button
+                <Button
+                  variant="ghost"
+                  type="button"
                   className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   onClick={() => setIsMobileMenuOpen(false)}
                   aria-label="Close menu"
                 >
                   <X className="size-5" />
-                </button>
+                </Button>
               </div>
 
               {/* Nav links */}
