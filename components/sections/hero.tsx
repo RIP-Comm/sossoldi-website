@@ -6,6 +6,7 @@ import { ArrowDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { GridPattern } from "@/components/ui/grid-pattern";
 import { RotatingText } from "@/components/ui/rotating-text";
+import { Badge } from "../ui/badge";
 
 const AppStoreIcon = () => {
   return (
@@ -46,12 +47,7 @@ export function Hero() {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
       {/* Grid pattern background */}
-      <GridPattern
-        className="text-border/30 dark:text-border/15"
-        cellSize={64}
-        strokeWidth={1}
-        fade={true}
-      />
+      <GridPattern className="text-border" cellSize={64} strokeWidth={1} fade={true} />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
@@ -62,14 +58,13 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-10 inline-flex items-center gap-3"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
-          </span>
-          <span className="font-mono text-xs font-medium tracking-wider text-muted-foreground uppercase">
+          <Badge variant="outline" className="gap-2 h-8 text-sm">
+            <span className="relative flex h-2 w-2 ml-1">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+            </span>
             {t("badge")}
-          </span>
-          <span className="h-px w-8 bg-border" />
+          </Badge>
         </motion.div>
 
         {/* Main headline */}

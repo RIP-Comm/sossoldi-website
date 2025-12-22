@@ -12,7 +12,7 @@
     "download": "Scarica"
   },
   "hero": {
-    "badge": "Ora con connessioni bancarie",
+    "badge": "Ora connesso alla tua banca",
     "headline": "Il tuo patrimonio.",
     "rotatingWords": {
       "track": "Traccialo.",
@@ -105,7 +105,7 @@
     "legal": "Legale",
     "privacy": "Privacy Policy",
     "terms": "Termini di Servizio",
-    "copyright": "© {year} Sossoldi. Open source con ❤️ dalla Community Mr. RIP."
+    "copyright": "© {year} Sossoldi. Open source, con il ❤️ dalla Community Mr. RIP."
   },
   "discordCta": {
     "title": "Unisciti alla",

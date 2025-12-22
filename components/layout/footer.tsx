@@ -1,10 +1,10 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 import { Github, MessageCircle } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -228,7 +228,7 @@ export function Footer() {
             style={{
               fontSize: "clamp(4rem, 18vw, 16rem)",
               color: "transparent",
-              WebkitTextStroke: "1px var(--muted)",
+              WebkitTextStroke: "1px var(--border)",
             }}
           >
             SOSSOLDI
