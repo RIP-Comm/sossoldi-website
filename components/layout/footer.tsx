@@ -23,7 +23,7 @@ export function Footer() {
   ];
 
   const communityLinks = [
-    { href: "https://discord.gg/2A3SkHhw5H", label: t("discord"), external: true },
+    { href: "https://discord.com/invite/PcaUZnvPzS", label: t("discord"), external: true },
     { href: "https://github.com/RIP-Comm/Sossoldi", label: t("github"), external: true },
   ];
 
@@ -34,7 +34,7 @@ export function Footer() {
 
   const socialLinks = [
     {
-      href: "https://discord.gg/2A3SkHhw5H",
+      href: "https://discord.com/invite/PcaUZnvPzS",
       icon: MessageCircle,
       label: "Discord",
     },

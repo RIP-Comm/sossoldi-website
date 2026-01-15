@@ -8,7 +8,7 @@ const intlMiddleware = createMiddleware(routing);
 const EXTERNAL_REDIRECTS: Record<string, string> = {
   "/docs": "https://rip-comm.github.io/sossoldi/",
   "/contribute": "https://rip-comm.github.io/sossoldi/contributing/PR-guide.html",
-  "/community": "https://discord.gg/rJ8ZFDrM",
+  "/community": "https://discord.com/invite/PcaUZnvPzS",
   "/repo": "https://github.com/RIP-Comm/sossoldi",
 };
 

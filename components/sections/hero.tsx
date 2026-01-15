@@ -105,7 +105,7 @@ export function Hero() {
             <AppStoreIcon />
           </a>
           <a
-            href="https://play.google.com/store/apps/details?id=com.ripcomm.sossoldi"
+            href="https://play.google.com/store/apps/details?id=com.ripster.sossoldi"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -1,11 +1,11 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
 import { SectionHeader } from "@/components/ui/section-header";
+import { cn } from "@/lib/utils";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -162,7 +162,7 @@ export function FAQ() {
           <p className="text-sm text-muted-foreground">
             Still have questions?{" "}
             <a
-              href="https://discord.gg/2A3SkHhw5H"
+              href="https://discord.com/invite/PcaUZnvPzS"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-primary underline-offset-4 hover:underline"

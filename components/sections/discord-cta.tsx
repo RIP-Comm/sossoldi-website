@@ -93,7 +93,7 @@ export function DiscordCTA() {
 
               {/* CTA Button */}
               <motion.a
-                href="https://discord.gg/2A3SkHhw5H"
+                href="https://discord.com/invite/PcaUZnvPzS"
                 target="_blank"
                 rel="noopener noreferrer"
                 variants={itemVariants}
