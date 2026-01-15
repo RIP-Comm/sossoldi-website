@@ -1,0 +1,364 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  /* Sossoldi Brand Colors */
+  --color-sossoldi-blue: var(--sossoldi-blue);
+  --color-sossoldi-blue-light: var(--sossoldi-blue-light);
+  --color-sossoldi-blue-dark: var(--sossoldi-blue-dark);
+  --color-sossoldi-accent: var(--sossoldi-accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  /* Glassmorphism */
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+}
+
+:root {
+  --radius: 2rem;
+
+  /* Sossoldi "Serious Blue" Brand Palette */
+  --sossoldi-blue: oklch(0.366 0.163 262.5); /* #0D47A1 - Primary Blue 900 */
+  --sossoldi-blue-light: oklch(0.432 0.163 262.5); /* #1565C0 - Blue 800 */
+  --sossoldi-blue-dark: oklch(0.30 0.14 262.5); /* #0A3880 - Darker Blue */
+  --sossoldi-accent: oklch(0.668 0.14 244); /* #42A5F5 - Blue 400 Accent */
+
+  /* Semantic Colors */
+  --success: oklch(0.627 0.194 145); /* #4CAF50 - Income/Positive */
+  --warning: oklch(0.82 0.165 85); /* #FFC107 - Warning */
+
+  /* Base Theme - Light Mode */
+  --background: oklch(0.985 0.002 260); /* Slight blue tint */
+  --foreground: oklch(0.15 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 260);
+
+  /* Primary uses Sossoldi Blue */
+  --primary: oklch(0.366 0.163 262.5);
+  --primary-foreground: oklch(0.985 0 0);
+
+  /* Secondary - Subtle blue tint */
+  --secondary: oklch(0.95 0.02 260);
+  --secondary-foreground: oklch(0.25 0.05 262);
+
+  --muted: oklch(0.96 0.01 260);
+  --muted-foreground: oklch(0.5 0.02 260);
+
+  /* Accent uses lighter Sossoldi blue */
+  --accent: oklch(0.92 0.04 260);
+  --accent-foreground: oklch(0.366 0.163 262.5);
+
+  --destructive: oklch(0.577 0.225 25); /* #EF5350 - Expense/Negative */
+  --border: oklch(0.90 0.02 260);
+  --input: oklch(0.90 0.02 260);
+  --ring: oklch(0.668 0.14 244);
+
+  /* Chart colors for financial data */
+  --chart-1: oklch(0.366 0.163 262.5); /* Sossoldi Blue */
+  --chart-2: oklch(0.627 0.194 145); /* Success Green */
+  --chart-3: oklch(0.668 0.14 244); /* Accent Blue */
+  --chart-4: oklch(0.577 0.225 25); /* Destructive Red */
+  --chart-5: oklch(0.82 0.165 85); /* Warning Yellow */
+
+  /* Sidebar */
+  --sidebar: oklch(0.98 0.01 260);
+  --sidebar-foreground: oklch(0.15 0.02 260);
+  --sidebar-primary: oklch(0.366 0.163 262.5);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.94 0.03 260);
+  --sidebar-accent-foreground: oklch(0.366 0.163 262.5);
+  --sidebar-border: oklch(0.90 0.02 260);
+  --sidebar-ring: oklch(0.668 0.14 244);
+
+  /* Glassmorphism tokens */
+  --glass: oklch(1 0 0 / 70%);
+  --glass-border: oklch(1 0 0 / 20%);
+}
+
+.dark {
+  /* Sossoldi Dark Mode */
+  --background: oklch(0.13 0.02 260);
+  --foreground: oklch(0.95 0.01 260);
+  --card: oklch(0.18 0.025 260);
+  --card-foreground: oklch(0.95 0.01 260);
+  --popover: oklch(0.18 0.025 260);
+  --popover-foreground: oklch(0.95 0.01 260);
+
+  /* Primary - Lighter blue for dark mode */
+  --primary: oklch(0.668 0.14 244);
+  --primary-foreground: oklch(0.13 0.02 260);
+
+  --secondary: oklch(0.22 0.03 260);
+  --secondary-foreground: oklch(0.95 0.01 260);
+
+  --muted: oklch(0.22 0.025 260);
+  --muted-foreground: oklch(0.65 0.02 260);
+
+  --accent: oklch(0.25 0.04 260);
+  --accent-foreground: oklch(0.668 0.14 244);
+
+  --destructive: oklch(0.65 0.2 25);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.668 0.14 244);
+
+  /* Chart colors - brighter for dark mode */
+  --chart-1: oklch(0.668 0.14 244);
+  --chart-2: oklch(0.70 0.18 145);
+  --chart-3: oklch(0.55 0.16 262.5);
+  --chart-4: oklch(0.65 0.2 25);
+  --chart-5: oklch(0.80 0.15 85);
+
+  /* Sidebar dark */
+  --sidebar: oklch(0.16 0.025 260);
+  --sidebar-foreground: oklch(0.95 0.01 260);
+  --sidebar-primary: oklch(0.668 0.14 244);
+  --sidebar-primary-foreground: oklch(0.13 0.02 260);
+  --sidebar-accent: oklch(0.22 0.035 260);
+  --sidebar-accent-foreground: oklch(0.668 0.14 244);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.668 0.14 244);
+
+  /* Glassmorphism dark */
+  --glass: oklch(0.18 0.025 260 / 70%);
+  --glass-border: oklch(1 0 0 / 10%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button {
+    cursor: pointer;
+  }
+  .heading-xl {
+    font-family: var(--font-sans);
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .heading-lg {
+    font-family: var(--font-sans);
+    font-size: 2.25rem;
+    line-height: 1.111;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .heading-md {
+    font-family: var(--font-sans);
+    font-size: 1.875rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .heading-sm {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    line-height: 1.333;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .container-padding-x {
+    padding-inline: 1.5rem;
+  }
+  .section-padding-y {
+    padding-block: 6rem;
+  }
+  .section-title-gap-xl {
+    gap: 1.5rem;
+  }
+  .section-title-gap-lg {
+    gap: 1.25rem;
+  }
+  .section-title-gap-md {
+    gap: 1.25rem;
+  }
+  .section-title-gap-sm {
+    gap: 1rem;
+  }
+}
+
+/* Glassmorphism utility classes */
+@layer components {
+  .glass {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glass-strong {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--sossoldi-blue) 0%, var(--sossoldi-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-dark {
+    background: linear-gradient(135deg, var(--sossoldi-accent) 0%, oklch(0.75 0.12 244) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: oklch(0.668 0.14 244 / 30%);
+}
+
+/* Lens-style animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* Giant outlined text for footer */
+.giant-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+  text-stroke: 1px rgba(255, 255, 255, 0.15);
+  paint-order: stroke fill;
+}
+
+
+@media (max-width: 64rem) {
+  .heading-xl {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+  .heading-lg {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+  .heading-md {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .heading-sm {
+    font-size: 1.5rem;
+    line-height: 1.333;
+  }
+  .container-padding-x {
+    padding-inline: 1.5rem;
+  }
+  .section-padding-y {
+    padding-block: 4rem;
+  }
+  .section-title-gap-xl {
+    gap: 1rem;
+  }
+  .section-title-gap-lg {
+    gap: 1rem;
+  }
+  .section-title-gap-md {
+    gap: 1rem;
+  }
+  .section-title-gap-sm {
+    gap: 1rem;
+  }
+}

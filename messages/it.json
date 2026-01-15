@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "title": "Sossoldi - Gestisci il Tuo Patrimonio, in Trasparenza",
+    "description": "L'app open source per la gestione delle finanze personali che colma il divario tra fogli di calcolo manuali e banking automatizzato. Traccia patrimonio, investimenti e spese in un unico posto sicuro."
+  },
+  "nav": {
+    "features": "Funzionalità",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "docs": "Docs",
+    "github": "GitHub",
+    "download": "Scarica"
+  },
+  "hero": {
+    "badge": "Ora connesso alla tua banca",
+    "headline": "Il tuo patrimonio.",
+    "rotatingWords": {
+      "track": "Traccialo.",
+      "grow": "Fallo crescere.",
+      "manage": "Gestiscilo.",
+      "control": "Controllalo."
+    },
+    "subheadline": "L'app open source per la gestione delle finanze personali che colma il divario tra fogli di calcolo manuali e banking automatizzato.",
+    "scrollCta": "Scopri",
+    "cta": {
+      "download": "Scarica Ora",
+      "appStore": "App Store",
+      "playStore": "Play Store",
+      "github": "Vedi su GitHub"
+    },
+    "stats": {
+      "openSource": "Open Source",
+      "trackers": "Trackers",
+      "transparency": "Trasparenza"
+    }
+  },
+  "features": {
+    "title": "Tutto Ciò di Cui Hai Bisogno per",
+    "titleHighlight": "Prendere il Controllo",
+    "subtitle": "Dal tracciamento manuale alla gestione patrimoniale automatizzata — pensiamo a tutto noi.",
+    "bankConnections": {
+      "title": "Connessioni Bancarie",
+      "description": "Collega i tuoi conti bancari in sicurezza con Enable Banking. Sincronizzazione automatica delle transazioni, zero problemi.",
+      "badge": "Nuovo"
+    },
+    "investmentTracking": {
+      "title": "Tracciamento Investimenti",
+      "description": "Traccia azioni, ETF, crypto e altro. Monitoraggio del portafoglio in tempo reale con analisi dettagliate delle performance."
+    },
+    "netWorthDashboard": {
+      "title": "Dashboard Patrimonio Netto",
+      "description": "La panoramica in stile Mr. RIP. Visualizza tutti i tuoi asset e passività a colpo d'occhio, splendidamente rappresentati."
+    },
+    "privacyFirst": {
+      "title": "Privacy Prima di Tutto",
+      "description": "Archiviazione locale dei dati, zero tracciamento, open source. I tuoi dati finanziari restano tuoi, sempre."
+    },
+    "analytics": {
+      "title": "Analisi Intelligenti",
+      "description": "Approfondimenti sui tuoi modelli di spesa con grafici bellissimi e raccomandazioni attuabili."
+    }
+  },
+  "faq": {
+    "title": "Domande",
+    "titleHighlight": "Frequenti",
+    "subtitle": "Tutto quello che devi sapere su Sossoldi.",
+    "security": {
+      "question": "Come gestite le mie credenziali bancarie?",
+      "answer": "Utilizziamo Enable Banking, un provider Open Banking certificato, per connetterci alla tua banca. Le tue credenziali di accesso non vengono mai condivise o memorizzate da Sossoldi — vanno direttamente alla tua banca attraverso canali sicuri e crittografati. Riceviamo solo i dati delle transazioni, mai le tue password."
+    },
+    "pricing": {
+      "question": "Sossoldi è ancora gratuito?",
+      "answer": "Sì! L'app Sossoldi di base è completamente gratuita e open source. Puoi usare tutte le funzionalità locali senza pagare nulla. In futuro, alcune funzionalità basate su cloud (come la sincronizzazione tra dispositivi o integrazioni API avanzate) potrebbero essere offerte come livello 'Product' premium, ma l'esperienza base rimarrà sempre gratuita."
+    },
+    "contribution": {
+      "question": "Come posso contribuire al progetto?",
+      "answer": "Adoriamo i contributi dalla community! Puoi aiutare segnalando bug, suggerendo funzionalità, migliorando la documentazione o inviando pull request. Consulta la nostra Guida ai Contributi su GitHub per iniziare."
+    },
+    "openSource": {
+      "question": "Perché Sossoldi è open source?",
+      "answer": "La trasparenza è al centro della gestione delle finanze personali. Essendo open source, ti garantiamo di poter verificare esattamente come vengono gestiti i tuoi dati, contribuire con miglioramenti e avere fiducia che non ci siano tracker nascosti o vendita di dati. È la filosofia della community Mr. RIP: onesta, trasparente e guidata dalla community."
+    }
+  },
+  "blog": {
+    "title": "Ultimi dal",
+    "titleHighlight": "Blog",
+    "subtitle": "Consigli finanziari, note di rilascio e approfondimenti tecnici.",
+    "readMore": "Leggi di più",
+    "viewAll": "Vedi tutti i post"
+  },
+  "footer": {
+    "tagline": "La trasparenza dell'Open Source, la potenza di un Prodotto Premium.",
+    "product": "Prodotto",
+    "download": "Scarica",
+    "features": "Funzionalità",
+    "pricing": "Prezzi",
+    "resources": "Risorse",
+    "docs": "Documentazione",
+    "blog": "Blog",
+    "contribute": "Contribuisci",
+    "community": "Community",
+    "discord": "Discord",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "legal": "Legale",
+    "privacy": "Privacy Policy",
+    "terms": "Termini di Servizio",
+    "copyright": "© {year} Sossoldi. Open source, con il ❤️ dalla Community Mr. RIP."
+  },
+  "discordCta": {
+    "title": "Unisciti alla",
+    "titleHighlight": "Community",
+    "description": "Connettiti con altri appassionati di finanza, ottieni aiuto, condividi consigli e contribuisci a plasmare il futuro di Sossoldi insieme. Il nostro Discord è dove succede la magia.",
+    "button": "Unisciti su Discord",
+    "members": "Membri",
+    "online": "Attivi Ora"
+  },
+  "common": {
+    "learnMore": "Scopri di più",
+    "getStarted": "Inizia",
+    "switchLanguage": "Cambia lingua"
+  }
+}

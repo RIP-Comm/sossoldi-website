@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "title": "Sossoldi - Master Your Wealth, Transparently",
+    "description": "The open-source personal finance app that bridges the gap between manual spreadsheets and automated banking. Track net worth, investments, and expenses in one secure place."
+  },
+  "nav": {
+    "features": "Features",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "docs": "Docs",
+    "github": "GitHub",
+    "download": "Download"
+  },
+  "hero": {
+    "badge": "Now conntcted with your bank",
+    "headline": "Your wealth.",
+    "rotatingWords": {
+      "track": "Track it.",
+      "grow": "Grow it.",
+      "manage": "Manage it.",
+      "control": "Control it."
+    },
+    "subheadline": "The open-source personal finance app that bridges the gap between manual spreadsheets and automated banking.",
+    "scrollCta": "Discover",
+    "cta": {
+      "download": "Download Now",
+      "appStore": "App Store",
+      "playStore": "Play Store",
+      "github": "View on GitHub"
+    },
+    "stats": {
+      "openSource": "Open Source",
+      "trackers": "Trackers",
+      "transparency": "Transparency"
+    }
+  },
+  "features": {
+    "title": "Everything You Need to",
+    "titleHighlight": "Take Control",
+    "subtitle": "From manual tracking to automated wealth management — we've got you covered.",
+    "bankConnections": {
+      "title": "Bank Connections",
+      "description": "Connect your bank accounts securely with Enable Banking. Automatic transaction syncing, zero hassle.",
+      "badge": "New"
+    },
+    "investmentTracking": {
+      "title": "Investment Tracking",
+      "description": "Track stocks, ETFs, crypto, and more. Real-time portfolio monitoring with detailed performance analytics."
+    },
+    "netWorthDashboard": {
+      "title": "Net Worth Dashboard",
+      "description": "The signature Mr. RIP style overview. See all your assets and liabilities at a glance, beautifully visualized."
+    },
+    "privacyFirst": {
+      "title": "Privacy First",
+      "description": "Local-first data storage, zero tracking, open source. Your financial data stays yours, always."
+    },
+    "analytics": {
+      "title": "Smart Analytics",
+      "description": "Deep insights into your spending patterns with beautiful charts and actionable recommendations."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked",
+    "titleHighlight": "Questions",
+    "subtitle": "Everything you need to know about Sossoldi.",
+    "security": {
+      "question": "How do you handle my bank credentials?",
+      "answer": "We use Enable Banking, a certified Open Banking provider, to connect to your bank. Your login credentials are never shared with or stored by Sossoldi — they go directly to your bank through secure, encrypted channels. We only receive transaction data, never your passwords."
+    },
+    "pricing": {
+      "question": "Is Sossoldi still free?",
+      "answer": "Yes! The core Sossoldi app is completely free and open-source. You can use all local features without paying anything. In the future, certain cloud-based features (like cross-device sync or advanced API integrations) may be offered as a premium 'Product' tier, but the core experience will always remain free."
+    },
+    "contribution": {
+      "question": "How can I contribute to the project?",
+      "answer": "We love contributions from the community! You can help by reporting bugs, suggesting features, improving documentation, or submitting pull requests. Check out our Contributing Guide on GitHub to get started."
+    },
+    "openSource": {
+      "question": "Why is Sossoldi open source?",
+      "answer": "Transparency is at the heart of personal finance management. By being open source, we ensure you can verify exactly how your data is handled, contribute improvements, and trust that there are no hidden trackers or data selling. It's the Mr. RIP community philosophy: honest, transparent, and community-driven."
+    }
+  },
+  "blog": {
+    "title": "Latest from the",
+    "titleHighlight": "Blog",
+    "subtitle": "Financial tips, release notes, and technical deep-dives.",
+    "readMore": "Read more",
+    "viewAll": "View all posts"
+  },
+  "footer": {
+    "tagline": "The transparency of Open Source, the power of a Premium Product.",
+    "product": "Product",
+    "download": "Download",
+    "features": "Features",
+    "pricing": "Pricing",
+    "resources": "Resources",
+    "docs": "Documentation",
+    "blog": "Blog",
+    "contribute": "Contribute",
+    "community": "Community",
+    "discord": "Discord",
+    "github": "GitHub",
+    "twitter": "Twitter",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© {year} Sossoldi. Open source with ❤️ by the Mr. RIP Community."
+  },
+  "discordCta": {
+    "title": "Join Our",
+    "titleHighlight": "Community",
+    "description": "Connect with fellow finance enthusiasts, get help, share tips, and shape the future of Sossoldi together. Our Discord is where the magic happens.",
+    "button": "Join Discord",
+    "members": "Members",
+    "online": "Active Now"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "getStarted": "Get started",
+    "switchLanguage": "Switch language"
+  }
+}
