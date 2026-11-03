@@ -356,6 +356,8 @@ h2:hover .heading-anchor, h3:hover .heading-anchor { opacity: 1; }
 .breadcrumb { font-size: 0.8rem; color: var(--sos-muted-on-paper); display: flex; gap: 8px; margin-bottom: 18px; }
 .breadcrumb a { text-decoration: none; }
 .docs-article h1 { font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
+.docs-article { min-width: 0; }
+.prose pre { max-width: 100%; }
 .doc-meta { font-size: 0.8rem; color: var(--sos-muted-on-paper); }
 
 .doc-footer { margin-top: 56px; border-top: var(--sos-rule) solid var(--sos-line); padding-top: 18px; }
