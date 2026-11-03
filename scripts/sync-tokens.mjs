@@ -56,20 +56,29 @@ if (fs.existsSync(fontSource)) {
     const input = path.join(fontSource, file);
     const output = path.join(fontTarget, file.replace(/\.ttf$/, ".woff2"));
     if (fs.existsSync(output) && fs.statSync(output).mtimeMs > fs.statSync(input).mtimeMs) continue;
-    execFileSync(
-      "python3",
-      [
-        "-m",
-        "fontTools.subset",
-        input,
-        `--unicodes=${unicodes}`,
-        "--layout-features=*",
-        "--flavor=woff2",
-        "--no-hinting",
-        `--output-file=${output}`,
-      ],
-      { stdio: ["ignore", "ignore", "inherit"] },
-    );
+    try {
+      execFileSync(
+        "python3",
+        [
+          "-m",
+          "fontTools.subset",
+          input,
+          `--unicodes=${unicodes}`,
+          "--layout-features=*",
+          "--flavor=woff2",
+          "--no-hinting",
+          `--output-file=${output}`,
+        ],
+        { stdio: ["ignore", "ignore", "inherit"] },
+      );
+    } catch (error) {
+      // Cloudflare Pages has no Python: keep the committed WOFF2 files.
+      if (fs.existsSync(output)) {
+        console.warn(`sync-tokens: could not rebuild ${path.basename(output)}, keeping the committed file`);
+      } else {
+        throw new Error(`sync-tokens: fontTools missing and ${output} does not exist`);
+      }
+    }
   }
 }
 

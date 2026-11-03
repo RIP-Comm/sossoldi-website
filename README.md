@@ -11,8 +11,9 @@ and P8 (post-launch analytics) are deliberately not done: everything is local fo
 ```bash
 npm install
 npm run dev          # http://localhost:8080 — Eleventy serve, tokens synced first
-npm run build        # translation guard + press kit + eleventy + pagefind → _site
+npm run build        # translation guard + eleventy + pagefind → _site
 npm run check        # translation guard + internal link check on the built site
+npm run assets       # regenerate WebP, OG images and the press kit (needs python3 + PIL)
 ```
 
 The build reads GitHub stars, contributors and releases from committed snapshots
