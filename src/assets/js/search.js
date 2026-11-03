@@ -81,6 +81,11 @@
     results.innerHTML = "";
   });
 
+  // Click on the backdrop (the dialog element itself, outside its children) closes.
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
   document.addEventListener("keydown", (event) => {
     const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || "");
     if ((event.key === "k" || event.key === "K") && (event.metaKey || event.ctrlKey)) {
