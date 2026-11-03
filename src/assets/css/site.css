@@ -180,9 +180,15 @@ p { margin: 0 0 1em; }
 
 .phone {
   width: min(320px, 100%); margin-inline: auto;
-  border: 10px solid var(--sos-ink); background: var(--sos-ink);
+  padding: 9px; position: relative;
+  border-radius: 46px; background: var(--sos-ink);
 }
-.phone img { width: 100%; }
+.phone img { width: 100%; border-radius: 38px; }
+.phone::after {
+  content: ""; position: absolute; top: 19px; left: 50%;
+  width: 92px; height: 27px; transform: translateX(-50%);
+  border-radius: 14px; background: var(--sos-ink); z-index: 2;
+}
 
 /* ---------- screens strip --------------------------------- */
 
