@@ -1,0 +1,63 @@
+---
+layout: page.njk
+title: "Press kit"
+description: "Descrizione, scheda fatti, logo, schermate, colori e contatto per scrivere di Sossoldi."
+lead: "Tutto quello che serve per scrivere di Sossoldi: descrizione, scheda fatti, logo, schermate e colori."
+ogKind: press
+---
+<p><a class="btn btn-primary" href="/assets/press/sossoldi-press-kit.zip" download>{{ ui.it.press.download }}</a></p>
+
+<h2>{{ ui.it.press.boilerplateTitle }}</h2>
+<p class="lead">{{ ui.it.press.boilerplateNote }}</p>
+<blockquote>
+  <p>Sossoldi è un'app gratuita e open source per gestire il patrimonio su iOS e Android. Tiene traccia di conti, investimenti, budget e pagamenti ricorrenti, e li riduce a un solo numero: il patrimonio netto. Tutto resta sul dispositivo: non c'è un account da creare, non c'è un abbonamento, non c'è un server Sossoldi. Scritta in Flutter e rilasciata con licenza MIT, è sviluppata apertamente da una community di contributor, con roadmap e discussioni pubbliche. L'app è disponibile su App Store, Google Play e F-Droid.</p>
+</blockquote>
+
+<h2>{{ ui.it.press.factsTitle }}</h2>
+<table class="facts">
+  <tbody>
+    <tr><th>{{ ui.it.press.facts.name }}</th><td>Sossoldi</td></tr>
+    <tr><th>{{ ui.it.press.facts.what }}</th><td>App di gestione del patrimonio, finanza personale e patrimonio netto</td></tr>
+    <tr><th>{{ ui.it.press.facts.licence }}</th><td><a href="{{ site.license.url }}" rel="noopener">MIT</a></td></tr>
+    <tr><th>{{ ui.it.press.facts.platforms }}</th><td>iOS (App Store), Android (Google Play, F-Droid)</td></tr>
+    <tr><th>{{ ui.it.press.facts.languages }}</th><td>Inglese; italiano e portoghese in arrivo</td></tr>
+    <tr><th>{{ ui.it.press.facts.since }}</th><td>0.1.0-beta, 4 dicembre 2024 · 1.0.0, 20 agosto 2026</td></tr>
+    <tr><th>{{ ui.it.press.facts.price }}</th><td>Gratis, nessun piano a pagamento, nessuna pubblicità</td></tr>
+    <tr><th>{{ ui.it.press.facts.repo }}</th><td><a href="{{ site.repo }}" rel="noopener">github.com/RIP-Comm/sossoldi</a></td></tr>
+  </tbody>
+</table>
+
+<h2>{{ ui.it.press.assetsTitle }}</h2>
+<p>{{ ui.it.press.assetsLead }}</p>
+<div class="asset-grid">
+  <a class="asset" href="/assets/img/sossoldi-icon.png" download>
+    <img src="/assets/img/sossoldi-icon.png" alt="Icona dell'app Sossoldi" width="96" height="96">
+    Icona <span>PNG · 512×512</span>
+  </a>
+  <a class="asset" href="/assets/docs/sossoldi_project_cover.jpg" download>
+    <img src="/assets/docs/sossoldi_project_cover.jpg" alt="Copertina del progetto Sossoldi" width="180" height="63">
+    Copertina <span>JPG · 4944×1720</span>
+  </a>
+  {% for i in range(1, 6) %}
+  <a class="asset" href="/assets/img/screens/0{{ i }}.png" download>
+    <img src="/assets/img/screens/0{{ i }}.png" alt="Schermata di Sossoldi {{ i }}" width="90" height="193" loading="lazy">
+    Schermata 0{{ i }} <span>PNG · 671×1440</span>
+  </a>
+  {% endfor %}
+</div>
+
+<h2>{{ ui.it.press.paletteTitle }}</h2>
+<div class="palette">
+  {% for color in tokens.colors %}
+  <div class="swatch">
+    <div class="swatch-color" style="background: {{ color.hex }}"></div>
+    <div class="swatch-meta"><strong>{{ color.label }}</strong>{{ color.hex }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+<h2>{{ ui.it.press.typeTitle }}</h2>
+<p>Nunito Sans, pesi 300–900. L'app e questo sito usano lo stesso carattere; il wordmark è in Nunito Sans Black.</p>
+
+<h2>{{ ui.it.press.contactTitle }}</h2>
+<p>{{ ui.it.press.contactNote }} <a href="mailto:{{ site.contacts.press }}">{{ site.contacts.press }}</a></p>

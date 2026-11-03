@@ -1,0 +1,21 @@
+{% set t = ui[lang] %}
+{% if releases.list | length %}
+<div class="changelog-list">
+  {% for release in releases.list %}
+  <article class="release">
+    <header>
+      <h2>{{ release.name or release.tag_name }}</h2>
+      {% if release.prerelease %}<span class="badge badge-pre">{{ t.common.preRelease }}</span>{% else %}<span class="badge">{{ t.common.stable }}</span>{% endif %}
+      <time datetime="{{ release.published_at | dateIso }}">{{ release.published_at | dateLabel(lang) }}</time>
+    </header>
+    <p class="release-link"><a href="{{ release.html_url }}" rel="noopener">{{ release.tag_name }} on GitHub ↗</a></p>
+    {% if release.body %}
+    <div class="release-notes-body prose">{{ release.body | markdown | safe }}</div>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
+<p class="doc-meta">{{ t.changelog.source }} · {{ t.changelog.snapshot }} {{ releases.snapshotAt | dateLabel(lang) }}</p>
+{% else %}
+<p>{{ t.changelog.empty }}</p>
+{% endif %}

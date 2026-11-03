@@ -1,0 +1,21 @@
+{% set t = ui[lang] %}
+{% set posts = collections["posts_" + lang] %}
+{% if posts | length %}
+<div class="posts">
+  {% for post in posts %}
+  <article class="post-card">
+    <div>
+      <time datetime="{{ post.date | dateIso }}">{{ post.date | dateLabel(lang) }}</time>
+      <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      <p>{{ post.data.description or post.templateContent | excerpt(180) }}</p>
+    </div>
+    {% if post.data.cover %}
+    <img src="{{ post.data.cover }}" alt="" width="320" height="200" loading="lazy">
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
+<p class="doc-meta"><a href="{{ '/feed.xml' if lang == 'en' else '/it/feed.xml' }}">{{ t.blog.rss }} ↗</a></p>
+{% else %}
+<p>{{ t.blog.empty }}</p>
+{% endif %}

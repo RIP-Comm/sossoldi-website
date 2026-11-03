@@ -1,0 +1,18 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Cross-Origin-Opener-Policy: same-origin
+
+/assets/*
+  Cache-Control: public, max-age=604800
+
+/pagefind/*
+  Cache-Control: public, max-age=3600
+
+/feed.xml
+  Content-Type: application/atom+xml; charset=utf-8
+
+/it/feed.xml
+  Content-Type: application/atom+xml; charset=utf-8

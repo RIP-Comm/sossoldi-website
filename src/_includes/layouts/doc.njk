@@ -1,0 +1,68 @@
+---
+layout: base.njk
+---
+{% set t = ui[lang] %}
+{% set docs = collections["docs_" + lang] %}
+{% set neighbors = docs | docNeighbors(page.url) %}
+{% set parentTitle = docs | docTitle(parent) %}
+<div class="wrap docs-shell">
+  <aside class="docs-sidebar">
+    <p class="sidebar-title">{{ t.common.docsNav }}</p>
+    <nav aria-label="{{ t.common.docsNav }}">
+      <ul class="docs-nav">
+      {% for item in docs %}
+        {% if not item.data.parent %}
+          <li class="docs-nav-top">
+            <a href="{{ item.url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.data.navTitle or item.data.title }}</a>
+            {% if item.data.navId %}
+              {% set children = docs | whereParent(item.data.navId) %}
+              {% if children | length %}
+                <ul class="docs-nav-children">
+                {% for child in children %}
+                  <li><a href="{{ child.url }}"{% if child.url == page.url %} aria-current="page"{% endif %}>{{ child.data.navTitle or child.data.title }}</a></li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+
+  <article class="docs-article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ '/docs/' if lang == 'en' else '/it/docs/' }}">{{ t.docs.title }}</a>
+      {% if parent %}<span aria-hidden="true">/</span><span>{{ parentTitle }}</span>{% endif %}
+    </nav>
+    <h1>{{ title }}</h1>
+    {% if lead %}<p class="lead">{{ lead }}</p>{% endif %}
+    {% if updated %}<p class="doc-meta">{{ t.common.updated }} {{ updated | dateLabel(lang) }}</p>{% endif %}
+    <div class="prose">
+      {{ content | safe }}
+    </div>
+
+    <div class="doc-footer">
+      <a class="doc-edit" href="{{ site.links.editDocsBase }}/{{ page.inputPath | replace('./', '') }}" rel="noopener">{{ t.common.editPage }} ↗</a>
+      {% if neighbors.prev or neighbors.next %}
+      <nav class="doc-pager" aria-label="Pagination">
+        {% if neighbors.prev %}<a class="pager-prev" href="{{ neighbors.prev.url }}"><span>{{ t.common.prev }}</span>{{ neighbors.prev.data.navTitle or neighbors.prev.data.title }}</a>{% endif %}
+        {% if neighbors.next %}<a class="pager-next" href="{{ neighbors.next.url }}"><span>{{ t.common.next }}</span>{{ neighbors.next.data.navTitle or neighbors.next.data.title }}</a>{% endif %}
+      </nav>
+      {% endif %}
+    </div>
+  </article>
+
+  <aside class="docs-toc">
+    {% set headings = content | toc %}
+    {% if headings | length %}
+      <p class="sidebar-title">{{ t.common.toc }}</p>
+      <ul>
+      {% for heading in headings %}
+        <li class="toc-level-{{ heading.level }}"><a href="#{{ heading.id }}">{{ heading.text }}</a></li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </aside>
+</div>

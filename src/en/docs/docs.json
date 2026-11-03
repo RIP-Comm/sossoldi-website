@@ -1,0 +1,5 @@
+{
+  "layout": "doc.njk",
+  "ogKind": "docs",
+  "templateEngineOverride": "njk,md"
+}

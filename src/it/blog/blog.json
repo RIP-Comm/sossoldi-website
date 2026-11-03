@@ -1,0 +1,5 @@
+{
+  "layout": "post.njk",
+  "ogKind": "blog",
+  "templateEngineOverride": "njk,md"
+}

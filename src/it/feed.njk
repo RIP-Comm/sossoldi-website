@@ -1,0 +1,24 @@
+---
+layout: false
+permalink: /it/feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="it">
+  <title>Sossoldi — Blog</title>
+  <subtitle>Appunti di chi costruisce Sossoldi.</subtitle>
+  <link href="{{ '/it/feed.xml' | absoluteUrl(site.url) }}" rel="self"/>
+  <link href="{{ '/it/' | absoluteUrl(site.url) }}"/>
+  <updated>{% if collections.posts_it.length %}{{ collections.posts_it[0].date | dateIso }}{% endif %}</updated>
+  <id>{{ '/it/' | absoluteUrl(site.url) }}</id>
+  <author><name>Sossoldi</name></author>
+  {%- for post in collections.posts_it %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ post.url | absoluteUrl(site.url) }}"/>
+    <id>{{ post.url | absoluteUrl(site.url) }}</id>
+    <updated>{{ post.date | dateIso }}</updated>
+    <summary>{{ post.data.description }}</summary>
+  </entry>
+  {%- endfor %}
+</feed>

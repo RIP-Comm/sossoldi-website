@@ -1,0 +1,161 @@
+{% set t = ui[lang] %}
+{% set pageTitle = title or t.home.title %}
+{% set metaDescription = description or site.seo.defaultDescription %}
+{% set otherUrl = page.url | altUrl(lang) %}
+{% set canonical = page.url | absoluteUrl(site.url) %}
+{% set alternate = otherUrl | absoluteUrl(site.url) %}
+{% set enUrl = canonical if lang == "en" else alternate %}
+{% set itUrl = alternate if lang == "en" else canonical %}
+{% if ogImagePath %}
+  {% set ogImage = ogImagePath | absoluteUrl(site.url) %}
+{% elif ogKind == "blog" and translationKey %}
+  {% set ogImage = ("/assets/og/post-" + translationKey + "-" + lang + ".png") | absoluteUrl(site.url) %}
+{% else %}
+  {% set ogImage = ("/assets/og/" + (ogKind or "home") + "-" + lang + ".png") | absoluteUrl(site.url) %}
+{% endif %}
+<!doctype html>
+<html lang="{{ t.meta.htmlLang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.url == "/" or page.url == "/it/" %}{{ site.name }} — {{ t.home.title }}{% else %}{{ pageTitle }} · {{ site.name }}{% endif %}</title>
+  <meta name="description" content="{{ metaDescription }}">
+  <link rel="canonical" href="{{ canonical }}">
+  <link rel="alternate" hreflang="en" href="{{ enUrl }}">
+  <link rel="alternate" hreflang="it" href="{{ itUrl }}">
+  <link rel="alternate" hreflang="x-default" href="{{ enUrl }}">
+  <meta property="og:type" content="{{ 'article' if layout == 'post.njk' else 'website' }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:locale" content="{{ t.meta.ogLocale }}">
+  <meta property="og:locale:alternate" content="{{ 'it_IT' if lang == 'en' else 'en_GB' }}">
+  <meta property="og:title" content="{{ pageTitle }}">
+  <meta property="og:description" content="{{ metaDescription }}">
+  <meta property="og:url" content="{{ canonical }}">
+  <meta property="og:image" content="{{ ogImage }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ pageTitle }}">
+  <meta name="twitter:description" content="{{ metaDescription }}">
+  <meta name="twitter:image" content="{{ ogImage }}">
+  <link rel="icon" href="/assets/img/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/NunitoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/NunitoSans-Black.woff2" as="font" type="font/woff2" crossorigin>
+  {% if page.url == "/" or page.url == "/it/" %}<link rel="preload" as="image" href="/assets/img/screens/01.webp" fetchpriority="high">{% endif %}
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} — {{ t.blog.title }}" href="{{ '/feed.xml' if lang == 'en' else '/it/feed.xml' }}">
+{% if site.analytics.cloudflareToken %}
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.analytics.cloudflareToken }}", "spa": false}'></script>
+{% endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main">{{ t.common.skip }}</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ '/' if lang == 'en' else '/it/' }}" aria-label="{{ site.name }} — {{ t.common.home }}">
+        <img class="brand-mark" src="/assets/img/sossoldi-icon.png" alt="" width="36" height="36">
+        <span class="brand-name">Sossoldi</span>
+      </a>
+
+      <nav class="site-nav" aria-label="{{ t.common.docsNav }}">
+        <a href="{{ '/' if lang == 'en' else '/it/' }}"{% if page.url == '/' or page.url == '/it/' %} aria-current="page"{% endif %}>{{ t.nav.home }}</a>
+        <a href="{{ '/docs/' if lang == 'en' else '/it/docs/' }}"{% if page.url | contains('/docs/') %} aria-current="page"{% endif %}>{{ t.nav.docs }}</a>
+        <a href="{{ '/changelog/' if lang == 'en' else '/it/changelog/' }}"{% if page.url | contains('/changelog') %} aria-current="page"{% endif %}>{{ t.nav.changelog }}</a>
+        <a href="{{ '/blog/' if lang == 'en' else '/it/blog/' }}"{% if page.url | contains('/blog/') %} aria-current="page"{% endif %}>{{ t.nav.blog }}</a>
+        <a href="{{ '/press/' if lang == 'en' else '/it/press/' }}"{% if page.url | contains('/press') %} aria-current="page"{% endif %}>{{ t.nav.press }}</a>
+      </nav>
+
+      <div class="header-tools">
+        <button class="icon-button" type="button" data-open-search aria-label="{{ t.common.search }}" title="{{ t.common.search }}">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        </button>
+        <a class="lang-switch" href="{{ otherUrl }}" hreflang="{{ 'it' if lang == 'en' else 'en' }}" lang="{{ 'it' if lang == 'en' else 'en' }}" title="{{ t.meta.switchTo }}">{{ t.meta.switchToShort }}</a>
+        <a class="icon-button" href="{{ site.repo }}" rel="noopener" aria-label="{{ t.nav.github }}" title="{{ t.nav.github }}">
+          <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <details class="mobile-nav">
+      <summary>{{ t.nav.menu }}</summary>
+      <nav class="wrap" aria-label="{{ t.nav.menu }}">
+        <a href="{{ '/' if lang == 'en' else '/it/' }}">{{ t.nav.home }}</a>
+        <a href="{{ '/docs/' if lang == 'en' else '/it/docs/' }}">{{ t.nav.docs }}</a>
+        <a href="{{ '/changelog/' if lang == 'en' else '/it/changelog/' }}">{{ t.nav.changelog }}</a>
+        <a href="{{ '/blog/' if lang == 'en' else '/it/blog/' }}">{{ t.nav.blog }}</a>
+        <a href="{{ '/press/' if lang == 'en' else '/it/press/' }}">{{ t.nav.press }}</a>
+        <a href="{{ site.repo }}" rel="noopener">{{ t.nav.github }}</a>
+      </nav>
+    </details>
+  </header>
+
+  <main id="main" data-pagefind-body data-pagefind-meta="lang:{{ lang }}">
+    {% block content %}{{ content | safe }}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="{{ '/' if lang == 'en' else '/it/' }}">
+          <img class="brand-mark" src="/assets/img/sossoldi-icon.png" alt="" width="32" height="32">
+          <span class="brand-name">Sossoldi</span>
+        </a>
+        <p>{{ t.footer.blurb }}</p>
+        <p class="footer-licence">{{ t.footer.licence }} · <a href="{{ site.license.url }}" rel="noopener">{{ site.license.id }}</a></p>
+      </div>
+      <div>
+        <h2>{{ t.footer.product }}</h2>
+        <ul>
+          <li><a href="{{ site.stores.ios }}" rel="noopener">App Store</a></li>
+          <li><a href="{{ site.stores.android }}" rel="noopener">Google Play</a></li>
+          <li><a href="{{ site.stores.fDroid }}" rel="noopener">F-Droid</a></li>
+          <li><a href="{{ '/changelog/' if lang == 'en' else '/it/changelog/' }}">{{ t.footer.changelog }}</a></li>
+          <li><a href="{{ '/press/' if lang == 'en' else '/it/press/' }}">{{ t.footer.press }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>{{ t.footer.docs }}</h2>
+        <ul>
+          <li><a href="{{ '/docs/' if lang == 'en' else '/it/docs/' }}">{{ t.nav.docs }}</a></li>
+          <li><a href="{{ '/docs/core-values/' if lang == 'en' else '/it/docs/core-values/' }}">{{ t.footer.coreValues }}</a></li>
+          <li><a href="{{ '/docs/roadmap/' if lang == 'en' else '/it/docs/roadmap/' }}">{{ t.footer.roadmap }}</a></li>
+          <li><a href="{{ '/docs/contributing/' if lang == 'en' else '/it/docs/contributing/' }}">{{ t.footer.contributing }}</a></li>
+          <li><a href="{{ '/docs/privacy-policy/' if lang == 'en' else '/it/docs/privacy-policy/' }}">{{ t.footer.privacy }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>{{ t.footer.community }}</h2>
+        <ul>
+          <li><a href="{{ site.links.githubRepo }}" rel="noopener">GitHub</a></li>
+          <li><a href="{{ site.links.githubIssues }}" rel="noopener">{{ t.footer.issues }}</a></li>
+          <li><a href="{{ site.links.githubDiscussions }}" rel="noopener">{{ t.footer.discussions }}</a></li>
+          <li><a href="{{ site.links.discord }}" rel="noopener">Discord</a></li>
+          <li><a href="{{ site.links.linkedin }}" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© {% year %} Sossoldi · {{ t.footer.rights }}</p>
+      <p>{{ t.footer.builtWith }}</p>
+    </div>
+  </footer>
+
+  <dialog id="search-dialog" class="search-dialog" aria-labelledby="search-title">
+    <form method="dialog" class="search-head">
+      <h2 id="search-title">{{ t.common.search }}</h2>
+      <button class="icon-button" value="close" aria-label="{{ t.common.close }}">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </form>
+    <label class="visually-hidden" for="search-input">{{ t.common.search }}</label>
+    <input id="search-input" type="search" autocomplete="off" placeholder="{{ t.common.searchPlaceholder }}">
+    <p class="search-hint">{{ t.common.searchHint }}</p>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+  </dialog>
+
+  <script src="/assets/js/search.js" defer></script>
+</body>
+</html>

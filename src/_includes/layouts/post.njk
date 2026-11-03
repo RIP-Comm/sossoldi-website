@@ -1,0 +1,28 @@
+---
+layout: base.njk
+---
+{% set t = ui[lang] %}
+<article class="wrap post">
+  <header class="post-head">
+    <p class="eyebrow"><a href="{{ '/blog/' if lang == 'en' else '/it/blog/' }}">{{ t.blog.title }}</a></p>
+    <h1>{{ title }}</h1>
+    {% if description %}<p class="lead">{{ description }}</p>{% endif %}
+    <p class="post-meta">
+      <time datetime="{{ date | dateIso }}">{{ date | dateLabel(lang) }}</time>
+      {% if author %}<span aria-hidden="true">·</span><span>{{ t.blog.by }} {{ author }}</span>{% endif %}
+      <span aria-hidden="true">·</span><span>{{ content | readingTime(lang) }}</span>
+    </p>
+  </header>
+  {% if cover %}
+  <figure class="post-cover">
+    <img src="{{ cover }}" alt="" width="{{ coverWidth or 1200 }}" height="{{ coverHeight or 630 }}">
+  </figure>
+  {% endif %}
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  <footer class="post-footer">
+    <a href="{{ '/blog/' if lang == 'en' else '/it/blog/' }}">← {{ t.blog.backToBlog }}</a>
+    <a href="{{ '/feed.xml' if lang == 'en' else '/it/feed.xml' }}">{{ t.blog.rss }}</a>
+  </footer>
+</article>

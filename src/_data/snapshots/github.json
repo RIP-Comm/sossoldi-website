@@ -1,0 +1,16 @@
+{
+  "snapshotAt": "2026-11-03T21:36:47.302Z",
+  "repo": "RIP-Comm/sossoldi",
+  "description": "\"Sossoldi\" is a wealth management / personal finance / Net Worth tracking app, made with Flutter.",
+  "forks": 216,
+  "homepage": "https://rip-comm.github.io/sossoldi/",
+  "license": "MIT",
+  "stars": 1415,
+  "topics": [
+    "dart",
+    "flutter",
+    "personal-finance",
+    "wealth-management"
+  ],
+  "contributors": 56
+}

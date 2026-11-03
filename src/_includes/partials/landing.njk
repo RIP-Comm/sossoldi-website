@@ -1,0 +1,154 @@
+{% set t = ui[lang] %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">{{ t.home.eyebrow }}</p>
+      <h1>{{ t.home.title }}</h1>
+      <p class="lead">{{ t.home.lead }}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ '/docs/' if lang == 'en' else '/it/docs/' }}">{{ t.home.ctaPrimary }}</a>
+        <a class="btn btn-ghost" href="{{ site.repo }}" rel="noopener">{{ t.home.ctaSecondary }}</a>
+      </div>
+
+      <div class="stores">
+        <span class="stores-label">{{ t.home.storesLabel }}</span>
+        <a class="store-badge" href="{{ site.stores.ios }}" rel="noopener">
+          <img src="/assets/img/app-store-badge.svg" alt="Download on the App Store" width="132" height="44" loading="lazy">
+        </a>
+        <a class="store-badge" href="{{ site.stores.android }}" rel="noopener">
+          <img src="/assets/img/google-play-badge.png" alt="Get it on Google Play" width="149" height="44" loading="lazy">
+        </a>
+        <a class="store-badge" href="{{ site.stores.fDroid }}" rel="noopener">
+          <img src="/assets/img/fdroid-badge.png" alt="Get it on F-Droid" width="149" height="44" loading="lazy">
+        </a>
+      </div>
+
+      <ul class="proof">
+        <li><strong>{{ github.stars | number(lang) }}</strong><span>{{ t.home.proofStars }}</span></li>
+        <li><strong>{{ github.contributors | number(lang) }}</strong><span>{{ t.home.proofContributors }}</span></li>
+        <li><strong>MIT</strong><span>{{ t.home.proofLicense }}</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-visual">
+      <div class="phone">
+        <img src="/assets/img/screens/01.webp" alt="Sossoldi on a phone — dashboard" width="671" height="1440" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="screens">
+  <div class="wrap">
+    <div class="screens-head">
+      <h2>{{ t.home.screensTitle }}</h2>
+      <p>{{ t.home.screensLead }}</p>
+    </div>
+    <div class="screens-track">
+      {% for i in range(1, 6) %}
+      <figure class="screen">
+        <img src="/assets/img/screens/0{{ i }}.webp" alt="{{ site.name }} — screenshot {{ i }}" width="671" height="1440" loading="lazy">
+        <figcaption>{{ "0" + i }}</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="wrap">
+    <div class="features-head">
+      <h2>{{ t.home.featuresTitle }}</h2>
+      <p class="lead">{{ t.home.featuresLead }}</p>
+    </div>
+    <div class="features-grid">
+      {% for feature in t.home.features %}
+      <div class="feature">
+        <span class="feature-number">{{ "0" + loop.index }}</span>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="wrap">
+    <h2>{{ t.home.pillarsTitle }}</h2>
+    <div class="pillars-grid">
+      {% for pillar in t.home.pillars %}
+      <div class="pillar">
+        <h3>{{ pillar.title }}</h3>
+        <p>{{ pillar.body }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap band-grid">
+    <div>
+      <p class="eyebrow">{{ t.nav.github }}</p>
+      <h2>{{ t.home.openTitle }}</h2>
+      <p class="lead">{{ t.home.openLead }}</p>
+      <ul>
+        {% for point in t.home.openPoints %}
+        <li>{{ point }}</li>
+        {% endfor %}
+      </ul>
+      <p style="margin-top:24px"><a class="btn" href="{{ site.repo }}" rel="noopener">{{ t.home.openCta }} ↗</a></p>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>{{ github.stars | number(lang) }}</strong><span>{{ t.home.proofStars }}</span></div>
+      <div class="stat"><strong>{{ github.contributors | number(lang) }}</strong><span>{{ t.home.proofContributors }}</span></div>
+      <div class="stat"><strong>{{ github.forks | number(lang) }}</strong><span>fork</span></div>
+      <div class="stat"><strong>{{ releases.list | length }}</strong><span>release</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="teaser">
+  <div class="wrap teaser-grid">
+    <div>
+      <h2>{{ t.home.changelogTitle }}</h2>
+      <p class="lead">{{ t.home.changelogLead }}</p>
+      <p><a class="btn btn-ghost" href="{{ '/changelog/' if lang == 'en' else '/it/changelog/' }}">{{ t.home.changelogCta }}</a></p>
+    </div>
+    {% if releases.latest %}
+    <article class="release-card">
+      <h3>{{ releases.latest.name }} {% if releases.latest.prerelease %}<span class="badge badge-pre">{{ t.common.preRelease }}</span>{% endif %}</h3>
+      <p class="release-meta">{{ t.common.released }} {{ releases.latest.published_at | dateLabel(lang) }}</p>
+      <div class="release-notes">{{ releases.latest.body | markdown | excerpt(240) }}</div>
+      <p style="margin:14px 0 0"><a class="release-link" href="{{ releases.latest.html_url }}" rel="noopener">{{ t.common.version }} {{ releases.latest.tag_name }} ↗</a></p>
+    </article>
+    {% endif %}
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>{{ t.home.faqTitle }}</h2>
+    <div class="faq-list">
+      {% for item in t.home.faq %}
+      <details>
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="community">
+  <div class="wrap">
+    <h2>{{ t.home.communityTitle }}</h2>
+    <p class="lead">{{ t.home.communityLead }}</p>
+    <div class="community-actions">
+      <a class="btn btn-primary" href="{{ site.links.discord }}" rel="noopener">{{ t.home.communityDiscord }}</a>
+      <a class="btn btn-ghost" href="{{ site.links.githubIssues }}" rel="noopener">{{ t.home.communityGithub }}</a>
+      <a class="btn btn-ghost" href="{{ site.links.linkedin }}" rel="noopener">{{ t.home.communityLinkedin }}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+{
+  "lang": "it",
+  "locale": "it_IT",
+  "permalink": "{{ page.filePathStem | localeUrl(lang) }}",
+  "layout": "page.njk"
+}
