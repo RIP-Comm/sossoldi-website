@@ -65,7 +65,6 @@
         <a href="{{ '/docs/' if lang == 'en' else '/it/docs/' }}"{% if page.url | contains('/docs/') %} aria-current="page"{% endif %}>{{ t.nav.docs }}</a>
         <a href="{{ '/changelog/' if lang == 'en' else '/it/changelog/' }}"{% if page.url | contains('/changelog') %} aria-current="page"{% endif %}>{{ t.nav.changelog }}</a>
         <a href="{{ '/blog/' if lang == 'en' else '/it/blog/' }}"{% if page.url | contains('/blog/') %} aria-current="page"{% endif %}>{{ t.nav.blog }}</a>
-        <a href="{{ '/press/' if lang == 'en' else '/it/press/' }}"{% if page.url | contains('/press') %} aria-current="page"{% endif %}>{{ t.nav.press }}</a>
       </nav>
 
       <div class="header-tools">
@@ -86,7 +85,6 @@
         <a href="{{ '/docs/' if lang == 'en' else '/it/docs/' }}">{{ t.nav.docs }}</a>
         <a href="{{ '/changelog/' if lang == 'en' else '/it/changelog/' }}">{{ t.nav.changelog }}</a>
         <a href="{{ '/blog/' if lang == 'en' else '/it/blog/' }}">{{ t.nav.blog }}</a>
-        <a href="{{ '/press/' if lang == 'en' else '/it/press/' }}">{{ t.nav.press }}</a>
         <a href="{{ site.repo }}" rel="noopener">{{ t.nav.github }}</a>
       </nav>
     </details>
@@ -113,7 +111,6 @@
           <li><a href="{{ site.stores.android }}" rel="noopener">Google Play</a></li>
           <li><a href="{{ site.stores.fDroid }}" rel="noopener">F-Droid</a></li>
           <li><a href="{{ '/changelog/' if lang == 'en' else '/it/changelog/' }}">{{ t.footer.changelog }}</a></li>
-          <li><a href="{{ '/press/' if lang == 'en' else '/it/press/' }}">{{ t.footer.press }}</a></li>
         </ul>
       </div>
       <div>

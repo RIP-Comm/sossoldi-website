@@ -410,24 +410,6 @@ h2:hover .heading-anchor, h3:hover .heading-anchor { opacity: 1; }
 .post-card time { font-size: 0.8rem; color: var(--sos-muted-on-paper); }
 .post-card img { border: var(--sos-rule) solid var(--sos-line); }
 
-/* ---------- press ----------------------------------------- */
-
-.asset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin: 24px 0 8px; }
-.asset { border: var(--sos-rule) solid var(--sos-line); padding: 14px; text-decoration: none; font-size: 0.85rem; font-weight: 700; }
-.asset:hover { border-color: var(--sos-ink); }
-.asset img { margin-bottom: 10px; background: var(--sos-paper); }
-.asset span { display: block; font-weight: 400; color: var(--sos-muted-on-paper); font-size: 0.78rem; }
-
-.palette { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 20px 0; }
-.swatch { border: var(--sos-rule) solid var(--sos-line); }
-.swatch-color { height: 72px; }
-.swatch-meta { padding: 8px 10px; font-size: 0.78rem; }
-.swatch-meta strong { display: block; }
-
-.facts { border-collapse: collapse; width: 100%; max-width: 720px; font-size: 0.92rem; }
-.facts th, .facts td { border-top: var(--sos-rule) solid var(--sos-line); padding: 10px 8px; text-align: left; vertical-align: top; }
-.facts th { width: 34%; color: var(--sos-muted-on-paper); font-weight: 700; }
-
 /* ---------- footer ---------------------------------------- */
 
 .site-footer { background: var(--sos-ink); color: var(--sos-paper); padding: clamp(40px, 6vw, 64px) 0 24px; }

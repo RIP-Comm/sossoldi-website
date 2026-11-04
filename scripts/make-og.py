@@ -30,8 +30,6 @@ PAGES = [
     ("changelog-it", "Changelog", "Ogni release, da GitHub"),
     ("blog-en", "Blog", "Notes from the people building Sossoldi"),
     ("blog-it", "Blog", "Appunti di chi costruisce Sossoldi"),
-    ("press-en", "Press kit", "Facts, logo, screenshots, colours"),
-    ("press-it", "Press kit", "Scheda fatti, logo, schermate, colori"),
     (
         "post-etf-slop-en",
         "Will 2026 be the year of ETF slop?",

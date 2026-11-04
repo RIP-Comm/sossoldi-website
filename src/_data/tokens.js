@@ -3,7 +3,7 @@ import path from "node:path";
 
 /**
  * Read the palette straight from the generated tokens stylesheet, so the
- * press page cannot drift from the design system.
+ * site cannot drift from the design system.
  */
 export default function () {
   const file = path.join(import.meta.dirname, "../assets/css/tokens.css");

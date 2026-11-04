@@ -1,10 +1,11 @@
 # sossoldi-website
 
 Public website for [Sossoldi](https://github.com/RIP-Comm/sossoldi): landing page, documentation,
-changelog, blog and press kit. Eleventy 3, bilingual EN/IT, Pagefind search, static output.
+changelog and blog. Eleventy 3, bilingual EN/IT, Pagefind search, static output.
 
-The plan this implements is **P0–P6** of `Sossoldi - sito web` (vault, 03/11/2026). P7 (DNS cutover)
-and P8 (post-launch analytics) are deliberately not done: everything is local for now.
+The plan this implements is **P0–P4 and P6** of `Sossoldi - sito web` (vault, 03/11/2026); **P5 (press kit)
+was removed on request on 04/11/2026**. P7 (DNS cutover) and P8 (post-launch analytics) are deliberately
+not done: everything is local for now.
 
 ## Local development
 
@@ -13,7 +14,7 @@ npm install
 npm run dev          # http://localhost:8080 — Eleventy serve, tokens synced first
 npm run build        # translation guard + eleventy + pagefind → _site
 npm run check        # translation guard + internal link check on the built site
-npm run assets       # regenerate WebP, OG images and the press kit (needs python3 + PIL)
+npm run assets       # regenerate WebP and OG images (needs python3 + PIL)
 ```
 
 The build reads GitHub stars, contributors and releases from committed snapshots
@@ -29,8 +30,8 @@ src/
     blog/            two posts, Italian = translation of the English source
   _data/             site constants, UI strings (both languages), GitHub/releases, tokens
   _includes/layouts  base, page, home, doc, post
-  assets/            CSS, fonts, images, generated OG images and press kit
-scripts/             tokens sync, docs import, translation guard, link checker, snapshots, OG, press kit
+  assets/            CSS, fonts, images, generated OG images
+scripts/             tokens sync, docs import, translation guard, link checker, snapshots, OG
 ```
 
 URLs are derived from the file path by the `localeUrl` filter: `src/en/docs/setup/linux.md` →

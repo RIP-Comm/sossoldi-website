@@ -2,7 +2,7 @@
 """Optimise the raster assets the pages actually load.
 
 Screenshots and blog covers are re-encoded as WebP; the PNG/JPG originals stay
-in place because the press kit links to them. Idempotent: skips files whose
+in place as the full-resolution originals. Idempotent: skips files whose
 WebP is newer than the source.
 """
 from pathlib import Path
