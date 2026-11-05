@@ -14,8 +14,8 @@ OUT = ROOT / "src" / "assets" / "og"
 FONT_DIR = ROOT.parent / "sossoldi-social-kit" / "design" / "fonts"
 
 INK = (0, 21, 45)
-PAPER = (241, 245, 249)
-MUTED = (125, 161, 196)
+PAPER = (244, 247, 251)
+MUTED = (90, 107, 125)
 RULE = (201, 214, 228)
 
 W, H = 1200, 630
@@ -74,21 +74,21 @@ def wrap(draw: ImageDraw.ImageDraw, text: str, face, max_width: int):
 
 
 def render(slug: str, title: str, eyebrow: str):
-    image = Image.new("RGB", (W, H), INK)
+    image = Image.new("RGB", (W, H), PAPER)
     draw = ImageDraw.Draw(image)
 
     # A single 1px rule, per the design system: no shadows, no gradients.
-    draw.line([(MARGIN, H - 96), (W - MARGIN, H - 96)], fill=(70, 96, 126), width=1)
+    draw.line([(MARGIN, H - 96), (W - MARGIN, H - 96)], fill=RULE, width=2)
 
     label = font("NunitoSans-Bold.ttf", 20)
     spaced = " ".join("SOSSOLDI")
-    draw.text((MARGIN, 72), spaced, font=label, fill=MUTED)
+    draw.text((MARGIN, 72), spaced, font=label, fill=(2, 59, 121))
 
     title_face = font("NunitoSans-Black.ttf", 68 if len(title) < 30 else 58)
     lines = wrap(draw, title, title_face, W - 2 * MARGIN)
     y = 150
     for line in lines[:4]:
-        draw.text((MARGIN, y), line, font=title_face, fill=PAPER)
+        draw.text((MARGIN, y), line, font=title_face, fill=INK)
         y += title_face.size + 10
 
     sub = font("NunitoSans-Medium.ttf", 26)
@@ -96,7 +96,7 @@ def render(slug: str, title: str, eyebrow: str):
 
     right = font("NunitoSans-Bold.ttf", 20)
     tag = "sossoldi.com"
-    draw.text((W - MARGIN - draw.textlength(tag, font=right), H - 70), tag, font=right, fill=PAPER)
+    draw.text((W - MARGIN - draw.textlength(tag, font=right), H - 70), tag, font=right, fill=INK)
 
     # Small app icon, top-right, as a mark rather than decoration.
     icon = Image.open(ROOT / "src/assets/img/sossoldi-icon.png").convert("RGBA").resize((56, 56))

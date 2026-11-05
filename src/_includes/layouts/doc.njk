@@ -5,31 +5,37 @@ layout: base.njk
 {% set docs = collections["docs_" + lang] %}
 {% set neighbors = docs | docNeighbors(page.url) %}
 {% set parentTitle = docs | docTitle(parent) %}
+{% macro navList(items, current) %}
+  <ul class="docs-nav">
+  {% for item in items %}
+    {% if not item.data.parent %}
+      <li class="docs-nav-top">
+        <a href="{{ item.url }}"{% if item.url == current %} aria-current="page"{% endif %}>{{ item.data.navTitle or item.data.title }}</a>
+        {% if item.data.navId %}
+          {% set children = items | whereParent(item.data.navId) %}
+          {% if children | length %}
+            <ul class="docs-nav-children">
+            {% for child in children %}
+              <li><a href="{{ child.url }}"{% if child.url == current %} aria-current="page"{% endif %}>{{ child.data.navTitle or child.data.title }}</a></li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+{% endmacro %}
 <div class="wrap docs-shell">
   <aside class="docs-sidebar">
     <p class="sidebar-title">{{ t.common.docsNav }}</p>
-    <nav aria-label="{{ t.common.docsNav }}">
-      <ul class="docs-nav">
-      {% for item in docs %}
-        {% if not item.data.parent %}
-          <li class="docs-nav-top">
-            <a href="{{ item.url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.data.navTitle or item.data.title }}</a>
-            {% if item.data.navId %}
-              {% set children = docs | whereParent(item.data.navId) %}
-              {% if children | length %}
-                <ul class="docs-nav-children">
-                {% for child in children %}
-                  <li><a href="{{ child.url }}"{% if child.url == page.url %} aria-current="page"{% endif %}>{{ child.data.navTitle or child.data.title }}</a></li>
-                {% endfor %}
-                </ul>
-              {% endif %}
-            {% endif %}
-          </li>
-        {% endif %}
-      {% endfor %}
-      </ul>
-    </nav>
+    <nav aria-label="{{ t.common.docsNav }}">{{ navList(docs, page.url) }}</nav>
   </aside>
+
+  <details class="docs-mobile">
+    <summary>{{ t.common.docsNav }}</summary>
+    <nav aria-label="{{ t.common.docsNav }}">{{ navList(docs, page.url) }}</nav>
+  </details>
 
   <article class="docs-article">
     <nav class="breadcrumb" aria-label="Breadcrumb">
